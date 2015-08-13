@@ -25,3 +25,11 @@ def hours_ahead(request, offset):
 	#return HttpResponse(html)
 	return render_to_response('hours_ahead.html',{'hour_offset': offset,'next_time': dt })
 
+def db(request):
+
+    greeting = Greeting()
+    greeting.save()
+
+    greetings = Greeting.objects.all()
+
+    return render(request, 'db.html', {'greetings': greetings})
